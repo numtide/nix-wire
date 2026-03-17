@@ -1,0 +1,46 @@
+# nwscript v1
+protocol: 1.38
+features: { }
+#
+# Example: add text content to the Nix store and verify it.
+# Run with: nix-wire-script run --script examples/add-text.nwscript
+#
+# AddTextToStore creates a store path from a string, like
+# builtins.toFile in Nix. The resulting path is content-addressed
+# so it's deterministic -- the same text always produces the same path.
+---
+
+SetOptions
+  keep_failed: 0
+  keep_going: 0
+  try_fallback: 0
+  verbosity: 1
+  max_build_jobs: 16
+  max_silent_time: 0
+  use_build_hook: 1
+  verbose_build: 0
+  log_type: 0
+  print_build_trace: 0
+  build_cores: 0
+  use_substitutes: 1
+  overrides: 0
+  expect: Last
+
+# Add a simple text file to the store
+AddTextToStore
+  suffix: "hello.txt"
+  text: "hello, nix-wire!\n"
+  refs: { }
+  expect: Last
+
+# The path is content-addressed: sha256 of "hello, nix-wire!\n"
+# We can verify it exists after adding
+IsValidPath /nix/store/1g675741znx8w1f3bkbn1bbwbigd50i8-hello.txt
+  expect: Last
+  expect result: 1
+
+# And query its metadata
+QueryPathInfo /nix/store/1g675741znx8w1f3bkbn1bbwbigd50i8-hello.txt
+  expect: Last
+  expect result.valid: 1
+  expect result.narSize: > 0

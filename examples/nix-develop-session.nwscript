@@ -1,0 +1,155 @@
+# nwscript v1
+protocol: 1.38
+features: { }
+# daemon: 2.33.3
+# trust: trusted
+---
+
+@3.209ms SetOptions
+  keep_failed: 0
+  keep_going: 0
+  try_fallback: 1
+  verbosity: 3
+  max_build_jobs: 22
+  max_silent_time: 0
+  use_build_hook: 1
+  verbose_build: 7
+  log_type: 0
+  print_build_trace: 0
+  build_cores: 0
+  use_substitutes: 1
+  overrides: 0
+  # response: Last
+
+@3.255ms AddTempRoot /nix/store/6hjy0m6npla17jdrc984ylr9md854arx-source
+  # response: Last
+  # result: 1
+
+@3.346ms IsValidPath /nix/store/6hjy0m6npla17jdrc984ylr9md854arx-source
+  # response: Last
+  # result: 1
+
+@3.474ms QueryPathInfo /nix/store/6hjy0m6npla17jdrc984ylr9md854arx-source
+  # response: Last
+  # result.valid: 1
+  # result.narHash: fcb5e4acff7abbccd184694bace853227b60c462776371b4aeddf755a82f69eb
+  # result.references: { }
+  # result.narSize: 121584
+
+@3.705ms SetOptions
+  keep_failed: 0
+  keep_going: 0
+  try_fallback: 1
+  verbosity: 3
+  max_build_jobs: 22
+  max_silent_time: 0
+  use_build_hook: 1
+  verbose_build: 7
+  log_type: 0
+  print_build_trace: 0
+  build_cores: 0
+  use_substitutes: 1
+  overrides: 0
+  # response: Last
+
+@4.563ms IsValidPath /nix/store/dpy300vpy0lzasp45x8ysv96v5nylcy3-nix-shell.drv
+  # response: Last
+  # result: 1
+
+@4.717ms EnsurePath /nix/store/dpy300vpy0lzasp45x8ysv96v5nylcy3-nix-shell.drv
+  # response: Last
+  # result: 1
+
+@4.759ms IsValidPath /nix/store/dpy300vpy0lzasp45x8ysv96v5nylcy3-nix-shell.drv
+  # response: Last
+  # result: 1
+
+@4.837ms AddToStore
+  name: "get-env.sh"
+  cam_str: "text:sha256"
+  refs: { }
+  repair: 0
+  data: @file:0000.bin
+  # response: Last
+  # result.valid: 1
+  # result.narHash: 3c04327ca830865bc3c3b24dc01f2ef268675f297ad3bc0987c619e4b8b74bfe
+  # result.references: { }
+  # result.narSize: 5152
+
+@40.788ms IsValidPath /nix/store/714bg2wagqyj1g5dqlhwg76bzslfmypg-nix-shell-env.drv
+  # response: Last
+  # result: 1
+
+@41.002ms BuildPaths { /nix/store/714bg2wagqyj1g5dqlhwg76bzslfmypg-nix-shell-env.drv!* } normal
+  # response: Last
+  # stderr.count: 21
+  # result: 1
+
+@80.403ms QueryDerivationOutputMap /nix/store/714bg2wagqyj1g5dqlhwg76bzslfmypg-nix-shell-env.drv
+  # response: Last
+  # result.count: 1
+  # result: "out" = "/nix/store/192j7c1iahz1b4mmncv5xr27bl2lafrf-nix-shell-env"
+
+@80.534ms IsValidPath /nix/store/192j7c1iahz1b4mmncv5xr27bl2lafrf-nix-shell-env
+  # response: Last
+  # result: 1
+
+@80.622ms IsValidPath /nix/store/192j7c1iahz1b4mmncv5xr27bl2lafrf-nix-shell-env
+  # response: Last
+  # result: 1
+
+@82.009ms EnsurePath /nix/store/s0bdxxy4gki016irflyqlxy5mzr96kin-source
+  # response: Last
+  # result: 1
+
+@82.109ms IsValidPath /nix/store/s0bdxxy4gki016irflyqlxy5mzr96kin-source
+  # response: Last
+  # result: 1
+
+@82.439ms AddTempRoot /nix/store/s0bdxxy4gki016irflyqlxy5mzr96kin-source
+  # response: Last
+  # result: 1
+
+@82.506ms IsValidPath /nix/store/s0bdxxy4gki016irflyqlxy5mzr96kin-source
+  # response: Last
+  # result: 1
+
+@82.553ms QueryPathInfo /nix/store/s0bdxxy4gki016irflyqlxy5mzr96kin-source
+  # response: Last
+  # result.valid: 1
+  # result.narHash: 850dbce1290878d69ecae77e2d2d1654b5fe58bdabc5c5592c511a2b47b4df38
+  # result.references: { }
+  # result.narSize: 196809696
+
+@82.805ms SetOptions
+  keep_failed: 0
+  keep_going: 0
+  try_fallback: 1
+  verbosity: 3
+  max_build_jobs: 22
+  max_silent_time: 0
+  use_build_hook: 1
+  verbose_build: 7
+  log_type: 0
+  print_build_trace: 0
+  build_cores: 0
+  use_substitutes: 1
+  overrides: 0
+  # response: Last
+
+@83.228ms IsValidPath /nix/store/0qh21cp8c04qzjnd77m3nrfzp9l1fc45-bash-interactive-5.3p9.drv
+  # response: Last
+  # result: 1
+
+@83.335ms QueryMissing { /nix/store/0qh21cp8c04qzjnd77m3nrfzp9l1fc45-bash-interactive-5.3p9.drv!man,out }
+  # response: Last
+  # stderr.count: 3
+  # result.willBuild: { }
+  # result.willSubstitute: { }
+  # result.unknown: { }
+  # result.downloadSize: 0
+  # result.narSize: 0
+
+@83.541ms BuildPathsWithResults { /nix/store/0qh21cp8c04qzjnd77m3nrfzp9l1fc45-bash-interactive-5.3p9.drv!man,out } normal
+  # response: Last
+  # stderr.count: 29

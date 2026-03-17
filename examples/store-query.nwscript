@@ -1,0 +1,32 @@
+# nwscript v1
+protocol: 1.38
+features: { }
+#
+# Example: various store query operations.
+# Run with: nix-wire-script run --script examples/store-query.nwscript
+---
+
+SetOptions
+  keep_failed: 0
+  keep_going: 0
+  try_fallback: 0
+  verbosity: 1
+  max_build_jobs: 16
+  max_silent_time: 0
+  use_build_hook: 1
+  verbose_build: 0
+  log_type: 0
+  print_build_trace: 0
+  build_cores: 0
+  use_substitutes: 1
+  overrides: 0
+
+# SyncWithGC always succeeds
+SyncWithGC
+  expect: Last
+
+# QueryPathFromHashPart looks up a store path by its hash prefix.
+# Using a hash that does not match anything returns an error.
+QueryPathFromHashPart aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  expect: Error
+  expect error: /invalid hash/

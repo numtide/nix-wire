@@ -1,0 +1,38 @@
+[package]
+name = "nix-wire-tools"
+version = "0.1.0"
+edition = "2021"
+description = "CLI tools for the Nix daemon wire protocol"
+license = "MIT"
+repository = "https://github.com/zimbatm/nix-wire"
+
+[dependencies]
+nix-wire = { path = "../nix-wire" }
+nix-wire-recording = { path = "../nix-wire-recording" }
+tokio = { version = "1", features = ["full"] }
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[[bin]]
+name = "nix-wire-record"
+path = "src/bin/record.rs"
+
+[[bin]]
+name = "nix-wire-replay"
+path = "src/bin/replay.rs"
+
+[[bin]]
+name = "nix-wire-decode"
+path = "src/bin/decode.rs"
+
+[[bin]]
+name = "nix-wire-script"
+path = "src/bin/script.rs"
+
+[[bin]]
+name = "nix-wire-stats"
+path = "src/bin/stats.rs"

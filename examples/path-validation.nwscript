@@ -1,0 +1,48 @@
+# nwscript v1
+protocol: 1.38
+features: { }
+#
+# Example: validate store paths and query their metadata.
+# Run with: nix-wire-script run --script examples/path-validation.nwscript
+#
+# NOTE: The store paths below are machine-specific. Before running, update
+# them to paths that exist in your store (e.g. from `nix build` output).
+---
+
+SetOptions
+  keep_failed: 0
+  keep_going: 0
+  try_fallback: 0
+  verbosity: 1
+  max_build_jobs: 16
+  max_silent_time: 0
+  use_build_hook: 1
+  verbose_build: 0
+  log_type: 0
+  print_build_trace: 0
+  build_cores: 0
+  use_substitutes: 1
+  overrides: 0
+  expect: Last
+
+# Check if a known store path exists
+IsValidPath /nix/store/rrbq5v1cxdlwq6pg27hmv9zwzcdz7frj-nix-wire-0.1.0
+  expect: Last
+  expect result: 1
+
+# Query detailed path info
+QueryPathInfo /nix/store/rrbq5v1cxdlwq6pg27hmv9zwzcdz7frj-nix-wire-0.1.0
+  expect: Last
+  expect result.valid: 1
+  expect result.narSize: > 0
+
+# Check a path that definitely does not exist
+IsValidPath /nix/store/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-does-not-exist
+  expect: Last
+  expect result: 0
+
+# QueryPathInfo on a non-existent path should still succeed
+# but report valid: 0
+QueryPathInfo /nix/store/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-does-not-exist
+  expect: Last
+  expect result.valid: 0

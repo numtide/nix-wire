@@ -1,0 +1,10 @@
+[package]
+name = "nix-wire-recording"
+version = "0.1.0"
+edition = "2021"
+description = "Read/write .nixwire recording files for the Nix daemon wire protocol"
+license = "MIT"
+repository = "https://github.com/zimbatm/nix-wire"
+
+[dependencies]
+anyhow = "1"
